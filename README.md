@@ -33,7 +33,7 @@ SNPClassifier/
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/SNPClassifier.git
+   git clone https://github.com/madsondeluna/SNPClassifier.git
    cd SNPClassifier
    ```
 
