@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <title>SNPClassifier</title>
+</head>
+<body>
+  <h1>SNPClassifier</h1>
+  <form method='post' enctype='multipart/form-data'>
+    <label>Nome do paciente:</label>
+    <input type='text' name='name' required>
+    <label>Arquivo VCF:</label>
+    <input type='file' name='vcf_file' accept='.vcf' required>
+    <button type='submit'>Enviar</button>
+  </form>
+  <hr>
+  {% for patient in patients %}
+    <h2>Paciente: {{ patient.name }} ({{ patient.vcf_filename }})</h2>
+    <table border='1'>
+      <tr>
+        <th>CHROM</th><th>POS</th><th>REF</th><th>ALT</th><th>Gene</th><th>Impacto</th><th>Conseq.</th><th>SIFT</th><th>PolyPhen</th><th>AF</th><th>Classificação</th>
+      </tr>
+      {% for variant in patient.variants %}
+      <tr>
+        <td>{{ variant.chromosome }}</td>
+        <td>{{ variant.position }}</td>
+        <td>{{ variant.ref }}</td>
+        <td>{{ variant.alt }}</td>
+        <td>{{ variant.gene }}</td>
+        <td>{{ variant.impact }}</td>
+        <td>{{ variant.consequence }}</td>
+        <td>{{ variant.sift }}</td>
+        <td>{{ variant.polyphen }}</td>
+        <td>{{ variant.af }}</td>
+        <td>{{ variant.classification }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endfor %}
+</body>
+</html>
